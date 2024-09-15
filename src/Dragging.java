@@ -7,7 +7,7 @@ import java.awt.event.*;
 public class Dragging extends GraphicsProgram {
 	public static final int WINDOW_WIDTH = 800;
 	public static final int WINDOW_HEIGHT = 600;
-	public static final int SHAPE_SIZE = 300;
+	public static final int SHAPE_SIZE = 100;
 
 	private GObject toDrag;
 	private double lastX;
@@ -30,13 +30,17 @@ public class Dragging extends GraphicsProgram {
 	@Override
 	public void mousePressed(MouseEvent e) {
 		toDrag = getElementAt(e.getX(), e.getY());
+		lastX = e.getX();
+		lastY = e.getY();
 	}
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
-		if (toDrag != null)
-			toDrag.setLocation(e.getX() - (0.5 * SHAPE_SIZE), e.getY() - (0.5 * SHAPE_SIZE));
-
+		if (toDrag != null) {
+			toDrag.move(e.getX() - lastX, e.getY() - lastY);
+			lastX = e.getX();
+			lastY = e.getY();
+		}
 	}
 
 	@Override
