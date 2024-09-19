@@ -4,7 +4,7 @@ import acm.util.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Ball extends GraphicsProgram {
+public class BallGame extends GraphicsProgram {
 	public static final int WINDOW_WIDTH = 800;
 	public static final int WINDOW_HEIGHT = 600;
 	public static final int BALL_SIZE = 100;
@@ -84,6 +84,6 @@ public class Ball extends GraphicsProgram {
 	}
 
 	public static void main(String[] args) {
-		new Ball().start();
+		new BallGame().start();
 	}
 }
